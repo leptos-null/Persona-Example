@@ -6,10 +6,10 @@
 //  Copyright © 2018 Leptos. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "LSAppDelegate.h"
 
 int main(int argc, char *argv[]) {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([LSAppDelegate class]));
     }
 }

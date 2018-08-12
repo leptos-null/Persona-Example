@@ -6,10 +6,10 @@
 //  Copyright © 2018 Leptos. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
-@interface ViewController : UIViewController
+@interface LSViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIView *monogramView;
+@property (weak, nonatomic) IBOutlet UIView *monogramHoldingView;
 
 @end

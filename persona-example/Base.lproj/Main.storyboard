@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LSViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dNl-2p-4sw"/>
                         <viewControllerLayoutGuide type="bottom" id="Tll-NY-1m8"/>
@@ -37,7 +37,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="monogramView" destination="2we-XF-YQo" id="d1b-mB-p8L"/>
+                        <outlet property="monogramHoldingView" destination="2we-XF-YQo" id="YTF-aS-LDI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

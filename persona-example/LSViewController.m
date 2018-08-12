@@ -6,12 +6,12 @@
 //  Copyright © 2018 Leptos. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LSViewController.h"
 
 #import "PRMonogram.h"
 #import "PRLikenessView.h"
 
-@implementation ViewController
+@implementation LSViewController
 
 /**
  @brief Serializer for PRMonogram, reverse engineered from -[PRMonogram dataRepresentation]
@@ -76,7 +76,7 @@ static NSData *monogramRecipeFromComponents(NSString *text, UIColor *color, NSUI
     PRLikeness *likeness = [PRLikeness monogramWithScope:PRLikenessScopePrivate recipe:recipe staticRepresentation:NULL];
     
     PRLikenessView *likenessView = [[PRLikenessView alloc] initWithLikeness:likeness];
-    UIView *holdingView = self.monogramView;
+    UIView *holdingView = self.monogramHoldingView;
     likenessView.frame = holdingView.bounds;
     likenessView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [holdingView addSubview:likenessView];
