@@ -27,7 +27,11 @@ static NSData *monogramRecipeFromComponents(NSString *text, UIColor *color, NSUI
      */
     if (fontIndex >= PRMonogram.countOfFonts) {
         NSString *exceptionReason = @"fontIndex may not be greater than or equal to PRMonogram.countOfFonts";
-        @throw [NSException exceptionWithName:NSInvalidArgumentException reason:exceptionReason userInfo:NULL];
+        NSDictionary *exceptionInfo = @{
+                                        @"fontIndex" : @(fontIndex),
+                                        @"PRMonogram.countOfFonts" : @(PRMonogram.countOfFonts)
+                                        };
+        @throw [NSException exceptionWithName:NSInvalidArgumentException reason:exceptionReason userInfo:exceptionInfo];
     }
     
     const char *textBytes = text.UTF8String;
@@ -36,21 +40,28 @@ static NSData *monogramRecipeFromComponents(NSString *text, UIColor *color, NSUI
     
     if (textLength > lowByteMax) {
         NSString *exceptionReason = @"text.length must be less than 16";
-        @throw [NSException exceptionWithName:NSInvalidArgumentException reason:exceptionReason userInfo:NULL];
+        NSDictionary *exceptionInfo = @{
+                                        @"textLength" : @(textLength),
+                                        @"fullHalfByte" : @(lowByteMax)
+                                        };
+        @throw [NSException exceptionWithName:NSInvalidArgumentException reason:exceptionReason userInfo:exceptionInfo];
     }
     
     NSMutableData *recipe = [NSMutableData data];
     
-    const uint8_t nullByte = 0;
-    [recipe appendBytes:&nullByte length:1];
+    typedef struct {
+        uint8_t serializerVersion;
+        uint8_t fontIndex : 4;
+        uint8_t textLength : 4;
+    } monogramRecipePackedInfo;
     
-    /* magic byte usage
-     * high bytes: textLength
-     * low bytes: fontIndex
-     */
-    uint8_t magicByte = (textLength << 4) | (fontIndex & lowByteMax);
-    [recipe appendBytes:&magicByte length:1];
+    monogramRecipePackedInfo packedInfo = {
+        .serializerVersion = 0,
+        .fontIndex = fontIndex,
+        .textLength = textLength
+    };
     
+    [recipe appendBytes:&packedInfo length:sizeof(packedInfo)];
     [recipe appendBytes:textBytes length:textLength];
     
     const NSUInteger colorComponents = 4;
@@ -61,8 +72,8 @@ static NSData *monogramRecipeFromComponents(NSString *text, UIColor *color, NSUI
     return recipe;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     NSData *recipe = monogramRecipeFromComponents(@"LS", UIColor.orangeColor, 0);
     
