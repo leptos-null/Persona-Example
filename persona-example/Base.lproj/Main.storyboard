@@ -19,25 +19,63 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2we-XF-YQo">
-                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                                <rect key="frame" x="50" y="174" width="275" height="275"/>
+                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="iWw-Yt-eml"/>
-                                    <constraint firstAttribute="width" constant="200" id="lgM-Q2-scn"/>
+                                    <constraint firstAttribute="width" secondItem="2we-XF-YQo" secondAttribute="height" multiplier="1:1" id="yEz-da-5ZH"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="64o-ZX-u9O" appends="YES" id="LYc-DF-5DE"/>
+                                    <outletCollection property="gestureRecognizers" destination="tjF-Tg-J0N" appends="YES" id="FBX-tg-Gcq"/>
+                                    <outletCollection property="gestureRecognizers" destination="xpx-Xr-3m1" appends="YES" id="mPk-4S-C0X"/>
+                                    <outletCollection property="gestureRecognizers" destination="LCP-e8-nCO" appends="YES" id="kvz-lT-rsa"/>
+                                </connections>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1Q-Z7-ECh">
+                                <rect key="frame" x="166.5" y="487" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2we-XF-YQo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Osz-ao-Dr8"/>
+                            <constraint firstItem="MdP-hV-I7Z" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="q1Q-Z7-ECh" secondAttribute="bottom" constant="12" id="3l5-ix-qeR"/>
+                            <constraint firstItem="2we-XF-YQo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-22" id="Osz-ao-Dr8"/>
+                            <constraint firstItem="q1Q-Z7-ECh" firstAttribute="top" secondItem="2we-XF-YQo" secondAttribute="bottom" constant="38" id="VrH-mt-T2U"/>
+                            <constraint firstItem="q1Q-Z7-ECh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zjb-Kh-HjZ"/>
+                            <constraint firstItem="2we-XF-YQo" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MdP-hV-I7Z" secondAttribute="top" constant="50" id="dss-nR-zSS"/>
                             <constraint firstItem="2we-XF-YQo" firstAttribute="centerX" secondItem="MdP-hV-I7Z" secondAttribute="centerX" id="hKy-YO-cni"/>
+                            <constraint firstItem="2we-XF-YQo" firstAttribute="leading" secondItem="MdP-hV-I7Z" secondAttribute="leading" priority="750" constant="50" id="n0Q-72-lVt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MdP-hV-I7Z"/>
                     </view>
                     <connections>
+                        <outlet property="monogramDescriptorLabel" destination="q1Q-Z7-ECh" id="fTr-wl-b1R"/>
                         <outlet property="monogramHoldingView" destination="2we-XF-YQo" id="YTF-aS-LDI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="64o-ZX-u9O">
+                    <connections>
+                        <action selector="monogramSwipe:" destination="BYZ-38-t0r" id="pwF-zp-f9D"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="tjF-Tg-J0N">
+                    <connections>
+                        <action selector="monogramSwipe:" destination="BYZ-38-t0r" id="T0P-1g-IvG"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="xpx-Xr-3m1">
+                    <connections>
+                        <action selector="monogramSwipe:" destination="BYZ-38-t0r" id="otQ-xg-QxH"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="LCP-e8-nCO">
+                    <connections>
+                        <action selector="monogramSwipe:" destination="BYZ-38-t0r" id="Srf-pA-gT7"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
         </scene>
     </scenes>

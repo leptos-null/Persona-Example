@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LSViewController.h
 //  persona-example
 //
 //  Created by Leptos on 7/30/18.
@@ -10,6 +10,7 @@
 
 @interface LSViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIView *monogramHoldingView;
+@property (strong, nonatomic) IBOutlet UIView *monogramHoldingView;
+@property (strong, nonatomic) IBOutlet UILabel *monogramDescriptorLabel;
 
 @end

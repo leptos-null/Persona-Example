@@ -13,8 +13,6 @@
 		FA027E9A211001E400BF0D0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA027E99211001E400BF0D0E /* Assets.xcassets */; };
 		FA027E9D211001E400BF0D0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA027E9B211001E400BF0D0E /* LaunchScreen.storyboard */; };
 		FA027EA0211001E400BF0D0E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA027E9F211001E400BF0D0E /* main.m */; };
-		FA027EA8211002BB00BF0D0E /* PersonaUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA027EA7211002BB00BF0D0E /* PersonaUI.framework */; };
-		FA37FF2121F2E11F006ACF24 /* PersonaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA027EAD211028AC00BF0D0E /* PersonaKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,9 +26,7 @@
 		FA027E9C211001E400BF0D0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA027E9E211001E400BF0D0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA027E9F211001E400BF0D0E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FA027EA7211002BB00BF0D0E /* PersonaUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PersonaUI.framework; path = ../../../theos/sdks/iPhoneOS10.2.sdk/System/Library/PrivateFrameworks/PersonaUI.framework; sourceTree = "<group>"; };
 		FA027EA92110041000BF0D0E /* PRMonogram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRMonogram.h; sourceTree = "<group>"; };
-		FA027EAD211028AC00BF0D0E /* PersonaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PersonaKit.framework; path = ../../../theos/sdks/iPhoneOS10.2.sdk/System/Library/PrivateFrameworks/PersonaKit.framework; sourceTree = "<group>"; };
 		FA584D72211277C00017CB55 /* PRMonogramView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRMonogramView.h; sourceTree = "<group>"; };
 		FA584D73211277C00017CB55 /* PRLikeness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRLikeness.h; sourceTree = "<group>"; };
 		FA584D74211277C00017CB55 /* PRLikenessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRLikenessView.h; sourceTree = "<group>"; };
@@ -41,8 +37,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA37FF2121F2E11F006ACF24 /* PersonaKit.framework in Frameworks */,
-				FA027EA8211002BB00BF0D0E /* PersonaUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +50,6 @@
 				FA37FF1D21F2DF56006ACF24 /* PersonaUI */,
 				FA027E8F211001E200BF0D0E /* persona-example */,
 				FA027E8E211001E200BF0D0E /* Products */,
-				FA027EA6211002BB00BF0D0E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,15 +73,6 @@
 				FA027E9F211001E400BF0D0E /* main.m */,
 			);
 			path = "persona-example";
-			sourceTree = "<group>";
-		};
-		FA027EA6211002BB00BF0D0E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FA027EAD211028AC00BF0D0E /* PersonaKit.framework */,
-				FA027EA7211002BB00BF0D0E /* PersonaUI.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		FA37FF1D21F2DF56006ACF24 /* PersonaUI */ = {
@@ -351,10 +335,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "null.leptos.persona-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
-					/Users/leptos/theos/sdks/iPhoneOS10.2.sdk/System/Library/PrivateFrameworks,
-					/Users/leptos/theos/sdks/iPhoneOS10.2.sdk/System/Library/Frameworks,
-				);
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -373,10 +354,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "null.leptos.persona-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
-					/Users/leptos/theos/sdks/iPhoneOS10.2.sdk/System/Library/PrivateFrameworks,
-					/Users/leptos/theos/sdks/iPhoneOS10.2.sdk/System/Library/Frameworks,
-				);
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
