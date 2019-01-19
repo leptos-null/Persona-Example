@@ -8,6 +8,7 @@
 
 #import "../PersonaKit/PRLikeness.h"
 
+API_AVAILABLE(ios(10.0))
 @interface PRLikenessView : UIView
 
 @property (assign, getter=isCircular, nonatomic) BOOL circular;

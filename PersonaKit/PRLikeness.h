@@ -50,7 +50,6 @@ API_AVAILABLE(ios(10.0))
 + (instancetype)monogramWithScope:(PRLikenessScope)scope recipe:(NSData *)recipe staticRepresentation:(CGImageRef)representation;
 + (instancetype)monogramWithRecipe:(NSData *)recipe staticRepresentation:(CGImageRef)representation;
 
-
 + (instancetype)photoWithImage:(CGImageRef)image cropRect:(CGRect)cropRect;
 + (instancetype)photoWithImage:(CGImageRef)image cropRectForTopLeftOrigin:(CGRect)cropRect;
 + (instancetype)photoWithImage:(CGImageRef)image cropRectForBottomLeftOrigin:(CGRect)cropRect;

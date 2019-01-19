@@ -8,6 +8,7 @@
 
 #import "PRMonogram.h"
 
+API_AVAILABLE(ios(10.0))
 @interface PRMonogramView : UIView <UITextFieldDelegate>
 
 @property (nonatomic, retain) PRMonogram *monogram;
