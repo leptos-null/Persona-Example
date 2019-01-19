@@ -1,5 +1,5 @@
 //
-//  AppDelegate.m
+//  LSAppDelegate.m
 //  persona-example
 //
 //  Created by Leptos on 7/30/18.
@@ -9,4 +9,5 @@
 #import "LSAppDelegate.h"
 
 @implementation LSAppDelegate
+
 @end

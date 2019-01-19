@@ -14,7 +14,7 @@
 		FA027E9D211001E400BF0D0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA027E9B211001E400BF0D0E /* LaunchScreen.storyboard */; };
 		FA027EA0211001E400BF0D0E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA027E9F211001E400BF0D0E /* main.m */; };
 		FA027EA8211002BB00BF0D0E /* PersonaUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA027EA7211002BB00BF0D0E /* PersonaUI.framework */; };
-		FA027EAE211028AC00BF0D0E /* PersonaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA027EAD211028AC00BF0D0E /* PersonaKit.framework */; };
+		FA37FF2121F2E11F006ACF24 /* PersonaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA027EAD211028AC00BF0D0E /* PersonaKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA027EAE211028AC00BF0D0E /* PersonaKit.framework in Frameworks */,
+				FA37FF2121F2E11F006ACF24 /* PersonaKit.framework in Frameworks */,
 				FA027EA8211002BB00BF0D0E /* PersonaUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,6 +52,8 @@
 		FA027E84211001E200BF0D0E = {
 			isa = PBXGroup;
 			children = (
+				FA37FF2021F2E0F2006ACF24 /* PersonaKit */,
+				FA37FF1D21F2DF56006ACF24 /* PersonaUI */,
 				FA027E8F211001E200BF0D0E /* persona-example */,
 				FA027E8E211001E200BF0D0E /* Products */,
 				FA027EA6211002BB00BF0D0E /* Frameworks */,
@@ -69,14 +71,8 @@
 		FA027E8F211001E200BF0D0E /* persona-example */ = {
 			isa = PBXGroup;
 			children = (
-				FA027E90211001E200BF0D0E /* LSAppDelegate.h */,
-				FA027E91211001E200BF0D0E /* LSAppDelegate.m */,
-				FA027EA92110041000BF0D0E /* PRMonogram.h */,
-				FA584D72211277C00017CB55 /* PRMonogramView.h */,
-				FA584D73211277C00017CB55 /* PRLikeness.h */,
-				FA584D74211277C00017CB55 /* PRLikenessView.h */,
-				FA027E93211001E200BF0D0E /* LSViewController.h */,
-				FA027E94211001E200BF0D0E /* LSViewController.m */,
+				FA37FF1E21F2DFAF006ACF24 /* AppDelegate */,
+				FA37FF1F21F2DFBA006ACF24 /* ViewControllers */,
 				FA027E96211001E200BF0D0E /* Main.storyboard */,
 				FA027E99211001E400BF0D0E /* Assets.xcassets */,
 				FA027E9B211001E400BF0D0E /* LaunchScreen.storyboard */,
@@ -93,6 +89,42 @@
 				FA027EA7211002BB00BF0D0E /* PersonaUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA37FF1D21F2DF56006ACF24 /* PersonaUI */ = {
+			isa = PBXGroup;
+			children = (
+				FA027EA92110041000BF0D0E /* PRMonogram.h */,
+				FA584D72211277C00017CB55 /* PRMonogramView.h */,
+				FA584D74211277C00017CB55 /* PRLikenessView.h */,
+			);
+			path = PersonaUI;
+			sourceTree = "<group>";
+		};
+		FA37FF1E21F2DFAF006ACF24 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FA027E90211001E200BF0D0E /* LSAppDelegate.h */,
+				FA027E91211001E200BF0D0E /* LSAppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		FA37FF1F21F2DFBA006ACF24 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA027E93211001E200BF0D0E /* LSViewController.h */,
+				FA027E94211001E200BF0D0E /* LSViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FA37FF2021F2E0F2006ACF24 /* PersonaKit */ = {
+			isa = PBXGroup;
+			children = (
+				FA584D73211277C00017CB55 /* PRLikeness.h */,
+			);
+			path = PersonaKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

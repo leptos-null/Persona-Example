@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger, PRLikenessScope) {
     PRLikenessScopePublic
 };
 
+API_AVAILABLE(ios(10.0))
 @interface PRLikeness : NSObject <NSSecureCoding>
 
 @property (assign, setter=setCurrent:, nonatomic) BOOL isCurrent;

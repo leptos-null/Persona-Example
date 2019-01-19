@@ -6,7 +6,7 @@
 //  Copyright © 2018 Leptos. All rights reserved.
 //
 
-#import "PRLikeness.h"
+#import "../PersonaKit/PRLikeness.h"
 
 @interface PRLikenessView : UIView
 

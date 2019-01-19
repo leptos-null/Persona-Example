@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  LSAppDelegate.h
 //  persona-example
 //
 //  Created by Leptos on 7/30/18.

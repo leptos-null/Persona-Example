@@ -6,7 +6,7 @@
 //  Copyright © 2018 Leptos. All rights reserved.
 //
 
-#import "LSAppDelegate.h"
+#import "AppDelegate/LSAppDelegate.h"
 
 int main(int argc, char *argv[]) {
     @autoreleasepool {

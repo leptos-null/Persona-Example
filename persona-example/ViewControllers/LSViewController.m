@@ -8,10 +8,12 @@
 
 #import "LSViewController.h"
 
-#import "PRMonogram.h"
-#import "PRLikenessView.h"
+#import "../../PersonaUI/PRMonogram.h"
+#import "../../PersonaUI/PRLikenessView.h"
 
-@implementation LSViewController
+@implementation LSViewController {
+    PRLikenessView *_likenessView;
+}
 
 /**
  @brief Serializer for PRMonogram, reverse engineered from -[PRMonogram dataRepresentation]
@@ -28,9 +30,9 @@ static NSData *monogramRecipeFromComponents(NSString *text, UIColor *color, NSUI
     if (fontIndex >= PRMonogram.countOfFonts) {
         NSString *exceptionReason = @"fontIndex may not be greater than or equal to PRMonogram.countOfFonts";
         NSDictionary *exceptionInfo = @{
-                                        @"fontIndex" : @(fontIndex),
-                                        @"PRMonogram.countOfFonts" : @(PRMonogram.countOfFonts)
-                                        };
+            @"fontIndex" : @(fontIndex),
+            @"PRMonogram.countOfFonts" : @(PRMonogram.countOfFonts)
+        };
         @throw [NSException exceptionWithName:NSInvalidArgumentException reason:exceptionReason userInfo:exceptionInfo];
     }
     
@@ -41,27 +43,27 @@ static NSData *monogramRecipeFromComponents(NSString *text, UIColor *color, NSUI
     if (textLength > lowByteMax) {
         NSString *exceptionReason = @"text.length must be less than 16";
         NSDictionary *exceptionInfo = @{
-                                        @"textLength" : @(textLength),
-                                        @"fullHalfByte" : @(lowByteMax)
-                                        };
+            @"textLength" : @(textLength),
+            @"fullHalfByte" : @(lowByteMax)
+        };
         @throw [NSException exceptionWithName:NSInvalidArgumentException reason:exceptionReason userInfo:exceptionInfo];
     }
     
     NSMutableData *recipe = [NSMutableData data];
     
-    typedef struct {
-        uint8_t serializerVersion;
+    uint8_t serializerVersion = 0;
+    [recipe appendBytes:&serializerVersion length:sizeof(serializerVersion)];
+    
+    struct {
         uint8_t fontIndex : 4;
         uint8_t textLength : 4;
-    } monogramRecipePackedInfo;
-    
-    monogramRecipePackedInfo packedInfo = {
-        .serializerVersion = 0,
+    } packedInfo = {
         .fontIndex = fontIndex,
         .textLength = textLength
     };
     
     [recipe appendBytes:&packedInfo length:sizeof(packedInfo)];
+    
     [recipe appendBytes:textBytes length:textLength];
     
     const NSUInteger colorComponents = 4;
@@ -69,21 +71,21 @@ static NSData *monogramRecipeFromComponents(NSString *text, UIColor *color, NSUI
     [color getRed:&colors[0] green:&colors[1] blue:&colors[2] alpha:&colors[3]];
     [recipe appendBytes:colors length:colorComponents];
     
-    return recipe;
+    return [recipe copy];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+#if 1
     NSData *recipe = monogramRecipeFromComponents(@"LS", UIColor.orangeColor, 0);
-    
-    /* the other option is to create a monogram and then get the data */
+#else /* the other option is to create a monogram and then get the data */
     PRMonogram *monogram = [PRMonogram monogram];
     monogram.text = @"LS";
     monogram.color = UIColor.orangeColor;
     monogram.fontIndex = 0;
-    /* NSData *recipe = */ [monogram dataRepresentation];
-    
+    NSData *recipe = [monogram dataRepresentation];
+#endif
     PRLikeness *likeness = [PRLikeness monogramWithScope:PRLikenessScopePrivate recipe:recipe staticRepresentation:NULL];
     
     PRLikenessView *likenessView = [[PRLikenessView alloc] initWithLikeness:likeness];
@@ -91,6 +93,10 @@ static NSData *monogramRecipeFromComponents(NSString *text, UIColor *color, NSUI
     likenessView.frame = holdingView.bounds;
     likenessView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [holdingView addSubview:likenessView];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 @end
